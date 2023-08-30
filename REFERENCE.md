@@ -322,7 +322,7 @@ The name of the Pool to use for Differential jobs
 
 ##### <a name="-bacula--client--port"></a>`port`
 
-Data type: `Integer`
+Data type: `Stdlib::Port`
 
 The listening port for the File Daemon
 
@@ -581,7 +581,7 @@ Default value: `undef`
 
 ##### <a name="-bacula--director--db_port"></a>`db_port`
 
-Data type: `Optional[String]`
+Data type: `Optional[Stdlib::Port]`
 
 The database port
 
@@ -662,7 +662,7 @@ Default value: `'secret'`
 
 ##### <a name="-bacula--director--port"></a>`port`
 
-Data type: `Integer`
+Data type: `Stdlib::Port`
 
 The listening port for the Director
 
@@ -890,7 +890,7 @@ Default value: `'secret'`
 
 ##### <a name="-bacula--storage--port"></a>`port`
 
-Data type: `Integer`
+Data type: `Stdlib::Port`
 
 The listening port for the Storage Daemon
 
@@ -971,7 +971,7 @@ The address of the Bacula File server daemon
 
 ##### <a name="-bacula--director--client--port"></a>`port`
 
-Data type: `Variant[String,Integer]`
+Data type: `Variant[String,Stdlib::Port]`
 
 The port of the Bacula File server daemon
 
@@ -1293,7 +1293,7 @@ Default value: `$name`
 
 ##### <a name="-bacula--director--storage--port"></a>`port`
 
-Data type: `Integer`
+Data type: `Stdlib::Port`
 
 Bacula director configuration for Storage option 'SDPort'
 

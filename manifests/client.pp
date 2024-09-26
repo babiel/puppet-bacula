@@ -46,6 +46,7 @@
 # @param pki_keypair         Bacula FD option for 'PKI Keypair'
 # @param pki_master_key      Bacula FD option for 'PKI Master Key'
 # @param plugin_dir          Bacula FD option for the 'Plugin Directory'
+# @param default_messages    Defines the default Bacula Message Resource, set false for custom values
 #
 # @example
 #   class { 'bacula::client': director_name => 'mydirector.example.com' }
@@ -67,6 +68,7 @@ class bacula::client (
   Bacula::Time            $job_retention       = '6 months',
   String                  $client              = $trusted['certname'],
   String                  $address             = $facts['networking']['fqdn'],
+  Boolean                 $default_messages    = true,
   Optional[Bacula::Yesno] $pki_signatures      = undef,
   Optional[Bacula::Yesno] $pki_encryption      = undef,
   Optional[String]        $pki_keypair         = undef,
@@ -103,10 +105,12 @@ class bacula::client (
     content => epp('bacula/bacula-fd-header.epp'),
   }
 
-  bacula::messages { 'Standard-fd':
-    daemon   => 'fd',
-    director => "${director_name}-dir = all, !skipped, !restored",
-    append   => '"/var/log/bacula/bacula-fd.log" = all, !skipped',
+  if $default_messages {
+    bacula::messages { 'Standard-fd':
+      daemon   => 'fd',
+      director => "${director_name}-dir = all, !skipped, !restored",
+      append   => '"/var/log/bacula/bacula-fd.log" = all, !skipped',
+    }
   }
 
   # Tell the director about this client config

@@ -283,6 +283,7 @@ The following parameters are available in the `bacula::client` class:
 * [`pki_keypair`](#-bacula--client--pki_keypair)
 * [`pki_master_key`](#-bacula--client--pki_master_key)
 * [`plugin_dir`](#-bacula--client--plugin_dir)
+* [`default_messages`](#-bacula--client--default_messages)
 
 ##### <a name="-bacula--client--packages"></a>`packages`
 
@@ -462,6 +463,14 @@ Data type: `Optional[String]`
 Bacula FD option for the 'Plugin Directory'
 
 Default value: `undef`
+
+##### <a name="-bacula--client--default_messages"></a>`default_messages`
+
+Data type: `Boolean`
+
+Defines the default Bacula Message Resource, set false for custom values
+
+Default value: `true`
 
 ### <a name="bacula--common"></a>`bacula::common`
 
